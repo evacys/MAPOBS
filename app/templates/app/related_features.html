@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'app/related_features_style.css' %}" />
+
+<div class="feature">
+<h1>{{ header }}</h1>
+
+<ul id="related_features">
+
+{% if related_features %}
+    {% for feature in related_features %}
+        <li><a href="{% url 'app:related_features_detail' feature_type feature_id output_feature_type feature.pk %}">feature_name</a></li>
+    {% endfor %}
+
+{% endif %}
+</ul>
+</div>         
+{% endblock content %}

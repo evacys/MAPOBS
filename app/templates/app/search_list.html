@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Search tool</h1>
+  <form method="get">
+  <div class="well">  
+  {{ filter.form.as_p }}
+
+ <button type="submit" class="btn btn-default">
+        <span class="glyphicon glyphicon-search"></span> Search
+  </button>
+  </div>
+  </form>
+
+<h1>Results</h1>
+<ul>
+  {% for feature in filter.qs %}
+        {% if feature_type == 'volcano' %}
+          <li><a href="{% url 'app:detail' feature_type feature.pk %}">{{ feature.vd_name }}</a></li>
+        {% elif feature_type == 'eruption' %}
+          <li><a href="{% url 'app:detail' feature_type feature.pk %}">{{ feature.ed_stime }}</a></li>
+        {% elif feature_type == 'fissure' %}
+          <li><a href="{% url 'app:detail' feature_type feature.pk %}">{{ feature.opentime }}</a></li>
+        {% elif feature_type == 'tephras' %}
+          <li><a href="{% url 'app:detail' feature_type feature.pk %}">{{ feature.accretion_date }}</a></li>
+        {% elif feature_type == 'flow' %}
+          <li><a href="{% url 'app:detail' feature_type feature.pk %}">{{ feature.stime }}</a></li>
+        {% elif feature_type == 'cone' %}
+          <li><a href="{% url 'app:detail' feature_type feature.pk %}">{{ feature.name }}</a></li>
+        {% elif feature_type == 'sample' %}
+          <li><a href="{% url 'app:detail' feature_type feature.pk %}">{{ feature.sampledate }}</a></li>
+        {% elif feature_type == 'mntortho' %}
+          <li><a href="{% url 'app:detail' feature_type feature.pk %}">{{ feature.loaddate }}</a></li>
+        {% elif feature_type == 'observation' %}
+          <li><a href="{% url 'app:detail' feature_type feature.pk %}">{{ feature.co_stime }}</a></li>
+
+        {% endif %}
+ {% endfor %}
+</ul>
+
+{% endblock content %}
+

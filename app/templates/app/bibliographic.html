@@ -1,0 +1,15 @@
+<a href="{% url 'app:add' feature_type %}">
+    <button type="button">Add</button>
+</a>
+
+
+{% if feature_list %}
+    <ul>
+    {% for bibliographic in feature_list %}
+        <li><a href="{% url 'app:detail' feature_type bibliographic.cb_id %}">{{ bibliographic.cb_title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No biblio is available.</p>
+{% endif %}
+

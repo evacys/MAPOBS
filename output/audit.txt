@@ -1,0 +1,15 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Tue Jun 19 12:56:53 2018
+Invocation: foremost all /opt/mapobs/mapobs/app/migrations/ 
+Output directory: /opt/mapobs/mapobs/output
+Configuration file: /etc/foremost.conf
+------------------------------------------------------------------
+File: stdin
+Start: Tue Jun 19 12:56:53 2018
+Length: Unknown
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+Interrupt received at Wed Jun 20 10:18:21 2018

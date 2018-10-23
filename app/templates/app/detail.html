@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'app/detail_style.css' %}" />
+
+<?php header("Access-Control-Allow-Origin: *"); ?>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js'></script>
+
+<div class="feature">
+  <h1>{{ feature_name }}</h1>
+
+  {% if output_feature_type %}
+    <a href="{% url 'app:modify' output_feature_type output_feature_id %}">
+        <button type="button">Modify</button>
+    </a>
+
+    {% if reverse == True %}
+       <a href="{% url 'app:detail' feature_type feature_id %}">"Return to the {{ feature_type }} details"</a>
+    {% endif %}
+
+  {% else %}
+    <a href="{% url 'app:modify' feature_type feature_id %}">
+      <button type="button">Modify</button>
+    </a>
+
+
+    {% if feature_type != 'volcano' and feature_type != 'sample' and reverse == True %}
+      <a href="{% url 'app:detail' reverse_feature_type reverse_feature_id %}">"Return to the {{ reverse_feature_type }} details"</a>
+    {% endif %}
+
+  {% endif %}
+
+
+  <div class="box">
+    {% if feature_type == 'mntortho' %}
+
+      {% load leaflet_tags %}
+
+
+      {% block extra_assets %}
+        {% leaflet_js %}
+        {% leaflet_css %}
+      {% endblock %}
+
+      <script type="text/javascript">
+
+        function ascii_layers(map,options){
+              L.tileLayer({{ raster }}, {
+                  tms: true
+              }).addTo(map);
+          }
+      </script>
+      {% leaflet_map "gis" callback="window.ascii_layers" %}
+
+    {% endif %}
+
+
+    <div class="feature_list_left">
+    <table>
+      {% for name, value in att %}
+          <tr>
+            <td>{{ name }}</td>
+            <td>{{ value }}</td>
+          </tr>
+
+      {% endfor %}
+     </table>
+     </div>
+
+    {% load static %}
+
+      <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}" />
+
+      {% if features is not empty %}
+        <div id="homepage">
+          <ul id="possible_features">
+
+            {% if output_feature_type %}
+
+              {% for f in features %}
+                <li><a href="{% url 'app:related_features' output_feature_type output_feature_id f %}">Access to {{ f }}</a></li>
+
+              {% endfor %}
+
+
+            {% else %}
+              {% for f in features %}
+                <li><a href="{% url 'app:related_features' feature_type feature_id f %}">Access to {{ f }}</a></li>
+              {% endfor %}
+
+            {% endif %}
+
+          </ul>
+        </div>
+      {% endif %}
+
+  </div>
+
+</div>
+
+{% endblock content %}

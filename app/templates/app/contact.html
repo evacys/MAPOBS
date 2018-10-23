@@ -1,0 +1,14 @@
+<a href="{% url 'app:add_contact'%}">
+    <button type="button">Add</button>
+</a>
+
+{% if feature_list %}
+    <ul>
+    {% for contact in feature_list %}
+        <li><a href="{% url 'app:detail' feature_type contact.cc_id %}">{{ contact.cc_fname }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No contacts are available.</p>
+{% endif %}
+

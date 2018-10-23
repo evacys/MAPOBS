@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/feature_style.css' %}" />
+
+<?php header("Access-Control-Allow-Origin: *"); ?>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js'></script>
+
+<div class="feature">
+
+<ul id="option">
+
+<li class="left_button"><a href="{% url 'app:add' output_feature_type %}">
+    <button type="button">Add</button>
+</a></li>
+
+<a href="{% url 'app:detail' feature_type feature_id %}">"Return to the {{ feature_type }} details"</a>
+
+<li class="right_button"><a href="{% url 'app:search' output_feature_type %}">
+  <button type="button" class="btn btn-default">
+    <span class="glyphicon glyphicon-search"></span> Search
+  </button>
+</a></li>
+
+
+</ul>
+
+
+<ul id="feature_list">
+
+{% if output_feature_type %}
+
+  {% if related_features %}
+
+    {% if geometries != "" %}
+
+      <div id='map' style='width: 800px; height: 500px; float=right;'>
+<script>
+    // mapbox token
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZXZhY3lzIiwiYSI6ImNqbGhuem9nNDBib3kzb3Q1ZHlmcXYzOWYifQ.0Qp5uFE3uMjeb7V4Cn6Q3Q';
+    // parse passed geojson string
+    var geometries = JSON.parse('{{ geometries | safe }}');
+    // show map
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v10',
+        center: [55.719998, -21.241202],
+        zoom: 12
+    });
+    // show geojson geometries on mapbox
+    map.on('load', function () {
+        map.addLayer({
+            'id': '0',
+            'type': 'fill',
+            'source': {
+                'type': 'geojson',
+                'data': geometries
+            },
+            'paint': {
+                'fill-color': '#00f',
+                'fill-opacity': 0.8
+            }
+        });
+    });
+</script>
+</div>
+
+        {% endif %}
+
+
+        {% for output_feature in related_features %}
+
+            <li><a href="{% url 'app:related_features_detail' feature_type feature_id output_feature_type output_feature.cone_id %}">{{ output_feature.name }}</a></li>
+        {% endfor %}
+
+  {% else %}
+      <p>There is no {{output_feature_type}} available.</p>
+  {% endif %}
+
+
+{% else %}
+  {% if feature_list %}
+
+    {% if geometries != "" %}
+
+      <div id='map' style='width: 800px; height: 500px; float=right;'>
+<script>
+    // mapbox token
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZXZhY3lzIiwiYSI6ImNqbGhuem9nNDBib3kzb3Q1ZHlmcXYzOWYifQ.0Qp5uFE3uMjeb7V4Cn6Q3Q';
+    // parse passed geojson string
+    var geometries = JSON.parse('{{ geometries | safe }}');
+    // show map
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v10',
+        center: [55.719998, -21.241202],
+        zoom: 12
+    });
+    // show geojson geometries on mapbox
+    map.on('load', function () {
+        map.addLayer({
+            'id': '0',
+            'type': 'fill',
+            'source': {
+                'type': 'geojson',
+                'data': geometries
+            },
+            'paint': {
+                'fill-color': '#00f',
+                'fill-opacity': 0.8
+            }
+        });
+    });
+</script>
+</div>
+
+        {% endif %}
+
+
+      {% for feature in feature_list %}
+
+            <li><a href="{% url 'app:detail' feature_type feature.cone_id %}">{{ feature.name }}</a></li>
+      {% endfor %}
+
+  {% else %}
+      <p>There is no {{feature_type}} available.</p>
+  {% endif %}
+
+{% endif %}
+</ul>
+{% endblock content %}
+

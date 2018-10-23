@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}" />
+
+<div id="homepage">
+
+<ul id="possible_features">
+     <li><a href="{% url 'app:features' 'volcano' %}">{{ "Access to volcanos" }}</a></li>
+     <li><a href="{% url 'app:admin' %}">{{ "Access to admin pannel" }}</a></li>
+</ul>
+
+</div>
+{% endblock content %}
+

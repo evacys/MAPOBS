@@ -1,0 +1,65 @@
+#homepage {
+
+        font: 75% georgia, sans-serif;
+        line-height: 1.88889;
+        color: #555753;
+        margin: 0;
+        padding: 0;
+
+        }
+
+img {
+
+        float: right;
+        width: 100px;
+        height: 100px;
+
+        }
+
+ul#navigation {
+
+        width : 600px;
+        height : 25px;
+        margin: 2em 0 0 0;
+        padding: 0;
+        background-color: #5F9EA0;
+        list-style-type : none;
+        border: 1px dashed white;
+
+        }
+
+ul#navigation li {
+
+        padding: 0 0.5em;
+        line-height: 30px;
+        list-style: none;
+
+        }
+
+ul#navigation li.left_button {
+
+        float: left;
+
+        }
+
+
+ul#navigation li.right_button {
+
+        float: right;
+
+        }
+
+ul#navigation a{
+
+        color: white;
+        text-decoration: none;
+        padding: 0 0.5em;
+
+        }
+
+ul#navigation a:hover, a:focus, a:active {
+        text-decoration: underline;
+        color: white;
+        }
+
+

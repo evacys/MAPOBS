@@ -1,0 +1,30 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'app/base_style.css' %}" />
+
+<div id="homepage">
+
+<img src="http://step.ipgp.fr/images/4/4e/Logo_IPGP.jpg" />
+<img src="http://www.ipgp.fr/sites/default/files/LogoWebOVPF_0.svg" />
+
+<ul id="navigation">
+<li class="left_button"><a href="{% url 'app:index' %}">MAPOBS</a></li>
+
+{% if user.is_authenticated %}
+   <li class="right_button"><a href="{% url 'logout' %}">logout</a></li>
+{% else %}
+  <li class="right_button"><a href="{% url 'login' %}">login</a></li>
+{% endif %}
+</div>
+
+
+{% if user.is_authenticated %}
+{% block content %}
+{% endblock %}
+
+{% else %}
+<h1>You need to log in first !</h1>
+<p>Please click on the login button on the upper right part of the menu</p>
+
+<p>If you don't have an account yet, please contact kiki@mail.com
+{% endif %}

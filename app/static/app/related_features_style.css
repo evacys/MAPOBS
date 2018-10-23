@@ -1,0 +1,33 @@
+.feature {
+
+        font: 75% georgia, sans-serif;
+        line-height: 1.88889;
+        color: #555753;
+        margin: 0;
+        padding: 0;
+
+        }
+
+
+ul#related_features li{
+        width : 200px;
+        height : 30px;
+        margin: 2em 2em 2em 2em;
+        padding: 0;
+        background-color: #E0FFFF;
+        list-style-type : none;
+        border: 1px;
+
+        list-style: none;
+
+        }
+
+ul#related_features a{
+
+        color: black;
+        text-decoration: none;
+        margin: 1.0em 1.0em 1.0em 1.0em
+        }
+
+ul#related_features a:hover, a:focus, a:active { text-decoration: underline; color:black; }
+

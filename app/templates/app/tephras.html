@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'app/feature_style.css' %}" />
+
+
+
+<div class="feature">
+
+<ul id="option">
+
+
+<li class="left_button"><a href="{% url 'app:add' output_feature_type %}">
+    <button type="button">Add</button>
+</a></li>
+
+<a href="{% url 'app:detail' feature_type feature_id %}">"Return to the {{ feature_type }} details"</a>
+
+<li class="right_button"><a href="{% url 'app:search' output_feature_type %}">
+  <button type="button" class="btn btn-default">
+    <span class="glyphicon glyphicon-search"></span> Search
+  </button>
+</a></li>
+
+</ul>
+
+<ul id="feature_list">
+
+{% if output_feature_type %}
+
+  {% if related_features %}
+        {% for output_feature in related_features %}
+
+            <li><a href="{% url 'app:related_features_detail' feature_type feature_id output_feature_type output_feature.teph_id %}">{{ output_feature.accretion_date }}</a></li>
+        {% endfor %}
+
+  {% else %}
+      <p>There is no {{output_feature_type}} available.</p>
+  {% endif %}
+
+
+{% else %}
+  {% if feature_list %}
+      {% for feature in feature_list %}
+
+            <li><a href="{% url 'app:detail' feature_type feature.teph_id %}">{{ feature.accretion_date }}</a></li>
+      {% endfor %}
+
+  {% else %}
+      <p>There is no {{feature_type}} available.</p>
+  {% endif %}
+
+{% endif %}
+</ul>
+{% endblock content %}
+
