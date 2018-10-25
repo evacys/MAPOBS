@@ -1,7 +1,7 @@
 # MAPOBS
 ## Repository for OVPF MAPOBS project
 
-MAPOBS est une application Web pour la saisie et l'exploitation de phénomènes éruptifs. Il est destiné au personnel de l'Observatoire Volcanologique du Piton de la Fournaise (OVPF).
+###### MAPOBS est une application Web pour la saisie et l'exploitation de phénomènes éruptifs. Il est destiné au personnel de l'Observatoire Volcanologique du Piton de la Fournaise (OVPF).
 
 
 
