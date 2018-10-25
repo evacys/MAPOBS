@@ -9,7 +9,7 @@ Avant toute chose, vous devez avoir installé Django sur votre machine. Pour plu
 
 Une fois Django installé:
 
-- Télécharger le code source de MAPOBS
+- Téléchargez le code source de MAPOBS
 - Placez vous dans le dossier contenant le projet (au niveau du manage.py)
 - Modifiez le document mapobs/settings.py à la ligne 29, en remplaçant ALLOWED_HOST par l'adresse de votre choix
 - Puis, afin d'accéder à l'application depuis un navigateur Web, tapez les commandes suivantes dans un terminal Ubuntu:
