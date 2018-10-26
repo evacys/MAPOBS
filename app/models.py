@@ -116,6 +116,8 @@ class Bibliographic(models.Model):
 
     cc_load = models.ForeignKey(Contact, null=True,
 
+                                   verbose_name = 'Loading contact',
+
                                    related_name='cb_cc_load_id',
 
                                    on_delete=models.CASCADE)
@@ -178,25 +180,37 @@ class Volcano(models.Model):
 
     cc_id1 = models.ForeignKey(Contact, null=True, related_name='vd_cc_id1',
 
+                               verbose_name = 'First contact',
+
                                on_delete=models.CASCADE, blank=True)
 
     cc_id2 = models.ForeignKey(Contact, null=True, related_name='vd_cc_id2',
+
+                               verbose_name = 'Second contact',
 
                                on_delete=models.CASCADE, blank=True)
 
     cc_id3 = models.ForeignKey(Contact, null=True, related_name='vd_cc_id3',
 
+                               verbose_name = 'Third contact',
+
                                on_delete=models.CASCADE, blank=True)
 
     cc_id4 = models.ForeignKey(Contact, null=True, related_name='vd_cc_id4',
+
+                               verbose_name = 'Fourth contact',
 
                                on_delete=models.CASCADE, blank=True)
 
     cc_id5 = models.ForeignKey(Contact, null=True, related_name='vd_cc_id5',
 
+                               verbose_name = 'Fith contact',
+
                                on_delete=models.CASCADE, blank=True)
 
     cc_load = models.ForeignKey(Contact, null=True,
+
+                                   verbose_name = 'Loading contact',
 
                                    related_name='vd_cc_load_id',
 
@@ -253,29 +267,43 @@ class Observation(models.Model):
 
     vd = models.ForeignKey(Volcano, null=True, related_name='co_vd_id',
 
+                              verbose_name = 'Related volcano',
+
                               on_delete=models.CASCADE)
 
     cc_id = models.ForeignKey(Contact, null=True, related_name='co_cc_id',
+
+                              verbose_name = 'First contact',
 
                               on_delete=models.CASCADE)
 
     cc_id2 = models.ForeignKey(Contact, null=True, related_name='co_cc_id2',
 
+                               verbose_name = 'Second contact',
+
                                on_delete=models.CASCADE)
 
     cc_id3 = models.ForeignKey(Contact, null=True, related_name='co_cc_id3',
+
+                               verbose_name = 'Third contact',
 
                                on_delete=models.CASCADE)
 
     cc_id4 = models.ForeignKey(Contact, null=True, related_name='co_cc_id4',
 
+                               verbose_name = 'Fourth contact',
+
                                on_delete=models.CASCADE)
 
     cc_id5 = models.ForeignKey(Contact, null=True, related_name='co_cc_id5',
 
+                               verbose_name = 'Fith contact',
+
                                on_delete=models.CASCADE)
 
     cc_load = models.ForeignKey(Contact, null=True,
+
+                                   verbose_name = 'Loading contact',
 
                                    related_name='co_cc_load_id',
 
@@ -493,13 +521,19 @@ class VolcanoInformation(models.Model):
 
     vd = models.ForeignKey(Volcano, null=True, related_name='vd_inf_vd_id',
 
+                              verbose_name = 'Related volcano',
+
                               on_delete=models.CASCADE)
 
     cc = models.ForeignKey(Contact, null=True, related_name='vd_inf_cc_id',
 
+                              verbose_name = 'First contact',
+
                               on_delete=models.CASCADE)
 
     cc_load = models.ForeignKey(Contact, null=True,
+
+                                   verbose_name = 'Loading contact',
 
                                    related_name='vd_inf_cc_load_id',
 
@@ -571,21 +605,31 @@ class Eruption(models.Model):
 
     vd = models.ForeignKey(Volcano, null=True, related_name='ed_vd_id',
 
+                              verbose_name = 'Related volcano',
+
                               on_delete=models.CASCADE)
 
     cc_id = models.ForeignKey(Contact, null=True, related_name='ed_cc_id',
+
+                              verbose_name = 'First contact',
 
                               on_delete=models.CASCADE)
 
     cc_id2 = models.ForeignKey(Contact, null=True, related_name='ed_cc_id2',
 
+                               verbose_name = 'Second contact',
+
                                on_delete=models.CASCADE)
 
     cc_id3 = models.ForeignKey(Contact, null=True, related_name='ed_cc_id3',
 
+                               verbose_name = 'Third contact',
+
                                on_delete=models.CASCADE)
 
     cc_load = models.ForeignKey(Contact, null=True,
+
+                                   verbose_name = 'Loading contact',
 
                                    related_name='ed_cc_load_id',
 
@@ -647,17 +691,25 @@ class SeismicEvent(models.Model):
 
     cc_id = models.ForeignKey(Contact, null=True, related_name='sd_ev_cc_id',
 
+                              verbose_name = 'First contact',
+
                               on_delete=models.CASCADE)
 
     cc_id2 = models.ForeignKey(Contact, null=True, related_name='sd_ev_cc_id2',
+
+                               verbose_name = 'Second contact',
 
                                on_delete=models.CASCADE)
 
     cc_id3 = models.ForeignKey(Contact, null=True, related_name='sd_ev_cc_id3',
 
+                               verbose_name = 'Third contact',
+
                                on_delete=models.CASCADE)
 
     cc_load = models.ForeignKey(Contact, null=True,
+
+                                   verbose_name = 'Loading contact',
 
                                    related_name='sd_ev_cc_load_id',
 
@@ -713,25 +765,37 @@ class EruptionObservation(models.Model):
 
     cc_id = models.ForeignKey(Contact, null=True, related_name='eo_cc_id',
 
+                              verbose_name = 'First contact',
+
                               on_delete=models.CASCADE)
 
     cc_id2 = models.ForeignKey(Contact, null=True, related_name='eo_cc_id2',
+
+                               verbose_name = 'Second contact',
 
                                on_delete=models.CASCADE)
 
     cc_id3 = models.ForeignKey(Contact, null=True, related_name='eo_cc_id3',
 
+                               verbose_name = 'Third contact',
+
                                on_delete=models.CASCADE)
 
     cc_id4 = models.ForeignKey(Contact, null=True, related_name='eo_cc_id4',
+
+                               verbose_name = 'Fourth contact',
 
                                on_delete=models.CASCADE)
 
     cc_id5 = models.ForeignKey(Contact, null=True, related_name='eo_cc_id5',
 
+                               verbose_name = 'Fith contact',
+
                                on_delete=models.CASCADE)
 
     cc_load = models.ForeignKey(Contact, null=True,
+
+                                   verbose_name = 'Loading contact',
 
                                    related_name='eo_cc_load_id',
 
@@ -791,17 +855,23 @@ class Fissure(models.Model):
 
     ed = models.ForeignKey(Eruption, null=True,
 
+                              verbose_name = 'Related eruption',
+
                               related_name='fissure_ed_id',
 
                               on_delete=models.CASCADE, blank=True)
 
     cc_load = models.ForeignKey(Contact, null=True,
 
+                                   verbose_name = 'Loading contact',
+
                                    related_name='fissure_cc_load_id',
 
                                    on_delete=models.CASCADE, blank=True)
 
     cc_pub = models.ForeignKey(Contact, null=True,
+
+                                  verbose_name = 'Contact that published the data',
 
                                   related_name='fissure_cc_pub_id',
 
@@ -904,6 +974,8 @@ class Cone(models.Model):
 
     fissure = models.ForeignKey(Fissure, null=True,
 
+                                   verbose_name = 'Related fissure',
+
                                    related_name='cone_fissure_id',
 
                                    on_delete=models.CASCADE,
@@ -912,6 +984,8 @@ class Cone(models.Model):
 
     cc_load = models.ForeignKey(Contact, null=True,
 
+                                   verbose_name = 'Loading contact',
+
                                    related_name='cone_cc_load_id',
 
                                    on_delete=models.CASCADE,
@@ -919,6 +993,8 @@ class Cone(models.Model):
                                    blank=True)
 
     cc_pub = models.ForeignKey(Contact, null=True,
+
+                                  verbose_name = 'Contact that published the data',
 
                                   related_name='cone_cc_pub_id',
 
@@ -1001,17 +1077,23 @@ class Tephras(models.Model):
 
     fissure = models.ForeignKey(Fissure, null=True,
 
+                                   verbose_name = 'Related fissure',
+
                                    related_name='teph_fissure_id',
 
                                    on_delete=models.CASCADE)
 
     cc_load = models.ForeignKey(Contact, null=True,
 
+                                   verbose_name = 'Loading contact',
+
                                    related_name='teph_cc_load_id',
 
                                    on_delete=models.CASCADE)
 
     cc_pub = models.ForeignKey(Contact, null=True,
+
+                                  verbose_name = 'Contact that published the data',
 
                                   related_name='teph_cc_pub_id',
 
@@ -1081,17 +1163,23 @@ class Flow(models.Model):
 
     fissure = models.ForeignKey(Fissure, null=True,
 
+                                   verbose_name = 'Related fissure',
+
                                    related_name='flow_fissure_id',
 
                                    on_delete=models.CASCADE)
 
     cc_load = models.ForeignKey(Contact, null=True,
 
+                                   verbose_name = 'Loading contact',
+
                                    related_name='flow_cc_load_id',
 
                                    on_delete=models.CASCADE)
 
     cc_pub = models.ForeignKey(Contact, null=True,
+
+                                  verbose_name = 'Contact that published the data',
 
                                   related_name='flow_cc_pub_id',
 
@@ -1156,6 +1244,8 @@ class Volume(models.Model):
 
     teph = models.ForeignKey(Tephras, null=True,
 
+                                verbose_name = 'Related tephras',
+
                                 related_name='volume_teph_id',
 
                                 on_delete=models.CASCADE,
@@ -1163,6 +1253,8 @@ class Volume(models.Model):
                                 blank=True)
 
     cone = models.ForeignKey(Cone, null=True,
+
+                                verbose_name = 'Related cone',
 
                                 related_name='volume_cone_id',
 
@@ -1172,6 +1264,8 @@ class Volume(models.Model):
 
     flow = models.ForeignKey(Flow, null=True,
 
+                                verbose_name = 'Related flow',
+
                                 related_name='volume_flow_id',
 
                                 on_delete=models.CASCADE,
@@ -1180,11 +1274,15 @@ class Volume(models.Model):
 
     cc_load = models.ForeignKey(Contact, null=True,
 
+                                   verbose_name = 'Loading contact',
+
                                    related_name='volume_cc_load_id',
 
                                    on_delete=models.CASCADE)
 
     cc_pub = models.ForeignKey(Contact, null=True,
+
+                                  verbose_name = 'Contact that published the data',
 
                                   related_name='volume_cc_pub_id',
 
@@ -1250,11 +1348,15 @@ class Sample(models.Model):
 
     teph = models.ForeignKey(Tephras, null=True,
 
+                                verbose_name = 'Related tephras',
+
                                 related_name='sample_teph_id',
 
                                 on_delete=models.CASCADE)
 
     cone = models.ForeignKey(Cone, null=True,
+
+                                verbose_name = 'Related cone',
 
                                 related_name='sample_cone_id',
 
@@ -1262,17 +1364,23 @@ class Sample(models.Model):
 
     flow = models.ForeignKey(Flow, null=True,
 
+                                verbose_name = 'Related flow',
+
                                 related_name='sample_flow_id',
 
                                 on_delete=models.CASCADE)
 
     cc_load = models.ForeignKey(Contact, null=True,
 
+                                   verbose_name = 'Loading contact',
+
                                    related_name='sample_cc_load_id',
 
                                    on_delete=models.CASCADE)
 
     cc_pub = models.ForeignKey(Contact, null=True,
+
+                                  verbose_name = 'Contact that published the data',
 
                                   related_name='sample_cc_pub_id',
 
@@ -1305,6 +1413,8 @@ class Petrology(models.Model):
 
     sample = models.ForeignKey(Sample, null=True,
 
+                                verbose_name = 'Related sample',
+
                                 related_name='petro_sample_id',
 
                                 on_delete=models.CASCADE)
@@ -1312,11 +1422,15 @@ class Petrology(models.Model):
 
     cc_load = models.ForeignKey(Contact, null=True,
 
+                                   verbose_name = 'Loading contact',
+
                                    related_name='petro_cc_load_id',
 
                                    on_delete=models.CASCADE)
 
     cc_pub = models.ForeignKey(Contact, null=True,
+
+                                  verbose_name = 'Contact that published the data',
 
                                   related_name='petro_cc_pub_id',
 
@@ -1352,6 +1466,8 @@ class Composition(models.Model):
 
     sample = models.ForeignKey(Sample, null=True,
 
+                                verbose_name = 'Related sample',
+
                                 related_name='compo_sample_id',
 
                                 on_delete=models.CASCADE)
@@ -1359,11 +1475,15 @@ class Composition(models.Model):
 
     cc_load = models.ForeignKey(Contact, null=True,
 
+                                   verbose_name = 'Loading contact',
+
                                    related_name='compo_cc_load_id',
 
                                    on_delete=models.CASCADE)
 
     cc_pub = models.ForeignKey(Contact, null=True,
+
+                                  verbose_name = 'Contact that published the data',
 
                                   related_name='compo_cc_pub_id',
 
@@ -1442,11 +1562,15 @@ class SatelliteAirplane(models.Model):
 
     cc_load = models.ForeignKey(Contact, null=True,
 
+                                   verbose_name = 'Loading contact',
+
                                    related_name='cs_cc_load_id',
 
                                    on_delete=models.CASCADE)
 
     cc_pub = models.ForeignKey(Contact, null=True,
+
+                                  verbose_name = 'Contact that published the data',
 
                                   related_name='cs_cc_pub_id',
 
@@ -1521,6 +1645,8 @@ class AcquisitionMethod(models.Model):
 
     cs = models.ForeignKey(SatelliteAirplane, null=True,
 
+                              verbose_name = 'Related satellite/ airplane',
+
                               related_name='am_cs_id',
 
                               on_delete=models.CASCADE, blank=True)
@@ -1528,11 +1654,15 @@ class AcquisitionMethod(models.Model):
 
     cc_load = models.ForeignKey(Contact, null=True,
 
+                                   verbose_name = 'Loading contact',
+
                                    related_name='am_cc_load_id',
 
                                    on_delete=models.CASCADE)
 
     cc_pub = models.ForeignKey(Contact, null=True,
+
+                                  verbose_name = 'Contact that published the data',
 
                                   related_name='am_cc_pub_id',
 
@@ -1627,6 +1757,8 @@ class MntOrtho(models.Model):
 
     am= models.ForeignKey(AcquisitionMethod, null=True,
 
+                                   verbose_name = 'Acquisition method',
+
                                    related_name='mo_am_id',
 
                                    on_delete=models.CASCADE, blank=True)
@@ -1634,11 +1766,15 @@ class MntOrtho(models.Model):
 
     cc_load = models.ForeignKey(Contact, null=True,
 
+                                   verbose_name = 'Loading contact',
+
                                    related_name='mo_cc_load_id',
 
                                    on_delete=models.CASCADE, blank=True)
 
     cc_pub = models.ForeignKey(Contact, null=True,
+
+                                  verbose_name = 'Contact that published the data',
 
                                   related_name='mo_cc_pub_id',
 
@@ -1695,11 +1831,15 @@ class AcquisitionTool(models.Model):
 
     cc_load = models.ForeignKey(Contact, null=True,
 
+                                   verbose_name = 'Loading contact',
+
                                    related_name='at_cc_load_id',
 
                                    on_delete=models.CASCADE)
 
     cc_pub = models.ForeignKey(Contact, null=True,
+
+                                  verbose_name = 'Contact that published the data',
 
                                   related_name='at_cc_pub_id',
 
